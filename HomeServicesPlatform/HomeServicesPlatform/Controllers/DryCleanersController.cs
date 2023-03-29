@@ -1,4 +1,5 @@
-﻿using HomeServicesPlatform.Bussiness.Entities;
+﻿using HomeServicesPlatform.Bussiness.DTOs;
+using HomeServicesPlatform.Bussiness.Entities;
 using HomeServicesPlatform.Bussiness.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -25,7 +26,7 @@ namespace HomeServicesPlatform.Controllers
         [HttpGet("/get-by-id/{cleanerId}")]
         public IActionResult GetById(int cleanerId)
         {
-            DryCleaners result = dryCleanerService.GetById(cleanerId);
+            DryCleanersDto result = dryCleanerService.GetById(cleanerId);
             if (result == null)
             {
                 return BadRequest("Dry cleaner not fount");
