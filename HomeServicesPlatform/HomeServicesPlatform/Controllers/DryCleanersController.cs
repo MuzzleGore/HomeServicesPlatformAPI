@@ -21,7 +21,7 @@ namespace HomeServicesPlatform.Controllers
         public IActionResult GetAll()
         {
             IEnumerable<DryCleaners> result = dryCleanerService.GetAll();
-            if ( !result.Any())
+            if (!result.Any())
             {
                 return BadRequest("No dry cleaners found");
             }
@@ -32,7 +32,8 @@ namespace HomeServicesPlatform.Controllers
         public IActionResult GetById(int cleanerId)
         {
             DryCleanersDto result = dryCleanerService.GetById(cleanerId);
-
+            if (result == null)
+                return BadRequest("Cleaner not found");
             return Ok(result);
         }
 
@@ -53,8 +54,17 @@ namespace HomeServicesPlatform.Controllers
         [HttpDelete("/delete/{cleanerId}")]
         public IActionResult Delete(int cleanerId)
         {
+            DryCleanersDto validCleaner = dryCleanerService.GetById(cleanerId);
+            if (validCleaner == null)
+            {
+                return BadRequest("Cleaner not found");
+
+            }
+
             dryCleanerService.DeleteCleaner(cleanerId);
             return Ok();
+
+
         }
     }
 }

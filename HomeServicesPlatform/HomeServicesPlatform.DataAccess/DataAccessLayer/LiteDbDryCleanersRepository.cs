@@ -11,7 +11,7 @@ namespace HomeServicesPlatform.DataAccess.DataAccessLayer
         private LiteDatabase database;
         public LiteDbDryCleanersRepository()
         {
-            database = new LiteDatabase("DryCleaners.db");
+            database = new LiteDatabase("Filename=DryCleaners.db;connection=shared");
         }
 
         public void AddDryCleaner(DryCleaners dryCleaner)
