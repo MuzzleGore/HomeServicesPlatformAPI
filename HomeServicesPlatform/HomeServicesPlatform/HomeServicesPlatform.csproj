@@ -14,6 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\HomeServicesPlatform.Bussiness\HomeServicesPlatform.Bussiness.csproj" />
+    <ProjectReference Include="..\HomeServicesPlatform.DataAccess\HomeServicesPlatform.DataAccess.csproj" />
   </ItemGroup>
 
 </Project>

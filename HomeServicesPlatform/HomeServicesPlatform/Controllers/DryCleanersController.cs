@@ -1,6 +1,7 @@
 ﻿using HomeServicesPlatform.Bussiness.DTOs;
 using HomeServicesPlatform.Bussiness.Entities;
 using HomeServicesPlatform.Bussiness.Services;
+using HomeServicesPlatform.DataAccess.DataAccessLayer;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HomeServicesPlatform.Controllers
@@ -11,15 +12,19 @@ namespace HomeServicesPlatform.Controllers
     {
         private readonly DryCleanerService dryCleanerService;
 
-        public DryCleanersController(DryCleanerService dryCleanerService)
+        public DryCleanersController()
         {
-            this.dryCleanerService = dryCleanerService;
+            this.dryCleanerService = dryCleanerService = new DryCleanerService(new LiteDbDryCleanersRepository());
         }
 
         [HttpGet("/get-all")]
         public IActionResult GetAll()
         {
             IEnumerable<DryCleaners> result = dryCleanerService.GetAll();
+            if ( !result.Any())
+            {
+                return BadRequest("No dry cleaners found");
+            }
             return Ok(result);
         }
 
@@ -27,10 +32,6 @@ namespace HomeServicesPlatform.Controllers
         public IActionResult GetById(int cleanerId)
         {
             DryCleanersDto result = dryCleanerService.GetById(cleanerId);
-            if (result == null)
-            {
-                return BadRequest("Dry cleaner not fount");
-            }
 
             return Ok(result);
         }

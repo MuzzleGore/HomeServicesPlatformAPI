@@ -12,11 +12,11 @@ namespace HomeServicesPlatform.Bussiness.Entities
         public string Address { get; set; }
         public string City { get; set; }
         public string PhoneNumber { get; set; }
-        public Dictionary<ClothingPieces, decimal> ClothingPieces { get; set; }
+        public Dictionary<ClothingPieces, double> ClothingPieces { get; set; }
         public string Owner { get; set; }
 
         public DryCleaners(int id, string name, string address, string city, string phoneNumber,
-            Dictionary<ClothingPieces, decimal> clothingPieces, string owner)
+            Dictionary<ClothingPieces,  double> clothingPieces, string owner)
         {
             Id = id;
             Name = name;
@@ -25,6 +25,10 @@ namespace HomeServicesPlatform.Bussiness.Entities
             PhoneNumber = phoneNumber;
             ClothingPieces = clothingPieces;
             Owner = owner;
+        }
+
+        public DryCleaners()
+        {
         }
 
     }

@@ -8,6 +8,6 @@ namespace HomeServicesPlatform.Bussiness.DTOs
         public string Address { get; set; }
         public string City { get; set; }
         public string PhoneNumber { get; set; }
-        public Dictionary<ClothingPieces, decimal> ClothingPieces { get; set; }
+        public Dictionary<ClothingPieces, double> ClothingPieces { get; set; }
     }
 }
