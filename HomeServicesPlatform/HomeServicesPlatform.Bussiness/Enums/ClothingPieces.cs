@@ -1,0 +1,41 @@
+﻿
+namespace HomeServicesPlatform.Bussiness.Enums
+{
+    public enum ClothingPieces
+    {
+        Shirt,
+        Pants,
+        Dress,
+        Skirt,
+        Coat,
+        Jacket,
+        Sweater,
+        Socks,
+        Underwear,
+        TShirt,
+        Shorts,
+        Blouse,
+        Blazer,
+        Trousers,
+        Jeans,
+        Tuxedo,
+        Bathrobe,
+        BathingSuit,
+        Bikini,
+        Nightgown,
+        Pajamas,
+        Robe,
+        Suit,
+        Sweatsuit,
+        Toga,
+        TuxedoJacket,
+        TuxedoPants,
+        TuxedoShirt,
+        TuxedoVest,
+        Uniform,
+        Vest,
+        WeddingGown,
+        Wrap,
+        Other
+    }
+}
